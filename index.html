@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome Back, Lil Mami 💌</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f5e4f7, #fddde6);
+      overflow: hidden;
+    }
+    .slide {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    .active {
+      display: flex;
+    }
+    h1, h2, p {
+      color: #5d3a6f;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background: #ff8ac7;
+      color: white;
+      font-size: 18px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #e76aa6;
+    }
+    .heart {
+      font-size: 60px;
+      animation: heartbeat 3s infinite;
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    .glow-text {
+      font-size: 2rem;
+      color: #fff;
+      text-shadow: 0 0 5px #ff85c1, 0 0 10px #e57ed6, 0 0 20px #d36fe3;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+    .no-btn:hover {
+      position: absolute;
+      top: calc(20% + 100px * Math.random());
+      left: calc(20% + 100px * Math.random());
+    }
+  </style>
+</head>
+<body>
+<div class="slide active" id="slide1">
+  <h1>Lil Mami, Welcome back 💌</h1>
+  <p>I missed you so much. More than I can ever say.</p>
+  <button onclick="nextSlide()">Next </button>
+</div>
+
+<div class="slide" id="slide2">
+  <h2> PRINCESS SONIA </h2>
+  <p>Still can’t get over that first time we met at my service place, I JUST CAN'T FORGET THAT… sensational right?</p>
+  <p>Do you remember going to Magic Land with me? I mean, we fought so many times that day but a special day regardless 😂</p>
+  <button onclick="nextSlide()">Of course I do 😂💗</button>
+</div>
+
+<div class="slide" id="slide3">
+  <h2>A likkle secret 🎯</h2>
+  <p>No matter how far we go, my heart always finds its way back to you… I can’t explain how.</p>
+  <div class="heart">❤️</div>
+  <button onclick="fakeButton(this)">Click here if you don’t love me anymore 😢</button>
+  <button onclick="nextSlide()">Next</button>
+</div>
+
+<div class="slide" id="slide4">
+  <h2 class="glow-text">So, what do I say? Will you be my wife again?💖 </h2>
+  <button onclick="confetti()">YES OFCOURSE </button>
+  <button class="no-btn" onmouseover="moveNo(this)">NO </button>
+  <br/><br/>
+  <a href="https://wa.me/2349032746451?text=Yes%2C%20I%E2%80%99m%20ready%20to%20be%20yours%20again" target="_blank">
+    <button>Click here to text me Baby</button>
+  </a>
+</div>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function nextSlide() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide++;
+      if (currentSlide < slides.length) {
+        slides[currentSlide].classList.add('active');
+      }
+    }
+
+    function fakeButton(btn) {
+      btn.style.display = 'none';
+      alert("Nice try 😏 but I know you love me");
+    }
+
+    function moveNo(btn) {
+      btn.style.position = 'absolute';
+      btn.style.top = Math.random() * 80 + '%';
+      btn.style.left = Math.random() * 80 + '%';
+    }
+
+    function confetti() {
+      alert('🎉💖 She said YES!');
+    }
+  </script>
+</body>
+</html>

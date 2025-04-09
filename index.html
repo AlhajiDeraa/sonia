@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome Back, Lil Mami 💌</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f5e4f7, #fddde6);
+      overflow: hidden;
+    }
+    .slide {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    .active {
+      display: flex;
+    }
+    h1, h2, p {
+      color: #5d3a6f;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background: #ff8ac7;
+      color: white;
+      font-size: 18px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #e76aa6;
+    }
+    .heart {
+      font-size: 60px;
+      animation: heartbeat 1.5s infinite;
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    .glow-text {
+      font-size: 2rem;
+      color: #fff;
+      text-shadow: 0 0 5px #ff85c1, 0 0 10px #e57ed6, 0 0 20px #d36fe3;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+    .no-btn:hover {
+      position: absolute;
+      top: calc(20% + 100px * Math.random());
+      left: calc(20% + 100px * Math.random());
+    }
+  </style>
+</head>
+<body>
+<div class="slide active" id="slide1">
+  <h1>Lil Mami, Welcome back 💌</h1>
+  <p>I've missed you so much. More than I can ever say.</p>
+  <button onclick="nextSlide()">Next </button>
+</div>
+
+<div class="slide" id="slide2">
+  <h2> PRINCESS SONIA </h2>
+  <p>Can’t get over that first time i met you at my service place, my obvious ass wanted to talk to you so bad 😂 CAN'T FORGET THAT LOL</p>
+  <p>The time at Magicland? The chicken republic dinner after?😂 Our fun times at my cousin's place where we'd argue over songs to play? The last date before i travelled? Our uncontrollable PDAs?😂 I mean, we fought so many times yet we had genuine & fun times. They were special to me</p>
+  <p>I'm actually sorry i messed things up. I felt it, I watched something this amazing slip off my hands.</p>
+  <p>Did you miss me tho?</p>
+  <button onclick="nextSlide()">OF COURSE I DID 💗</button>
+</div>
+
+<div class="slide" id="slide3">
+  <h2>A likkle secret? </h2>
+  <p>I luv you genuinely, Sonia. You were a perfect fit for me and i hope & pray you'll be again. </p>
+  <div class="heart">💗️</div>
+  <button onclick="fakeButton(this)">Click here if you don’t love me anymore 😢</button>
+  <button onclick="nextSlide()">Next</button>
+</div>
+
+<div class="slide" id="slide4">
+  <p>Dear Sonia, </p>
+  <h2 class="glow-text"> WILL YOU BE MY WIFE AGAIN? 💖</h2>
+  <button onclick="confetti()">YES OFCOURSE </button>
+  <button class="no-btn" onmouseover="moveNo(this)">NO </button>
+  <br/><br/>
+  <a href="https://wa.me/2349032746451?text=Yes%2C%20I%E2%80%99m%20ready%20to%20be%20yours%20again" target="_blank">
+    <button>No worry you no get choice, Click this button Baby 😂</button>
+  </a>
+</div>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function nextSlide() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide++;
+      if (currentSlide < slides.length) {
+        slides[currentSlide].classList.add('active');
+      }
+    }
+
+    function fakeButton(btn) {
+      btn.style.display = 'none';
+      alert("Nice try 😂😏 but I know you love me");
+    }
+
+    function moveNo(btn) {
+      btn.style.position = 'absolute';
+      btn.style.top = Math.random() * 80 + '%';
+      btn.style.left = Math.random() * 80 + '%';
+    }
+
+    function confetti() {
+      alert('YAYY! 🎉💖 She said YES!');
+    }
+  </script>
+</body>
+</html>

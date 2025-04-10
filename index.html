@@ -6,18 +6,23 @@
     <title>💌</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             font-family: 'Raleway', sans-serif;
             background: linear-gradient(135deg, #f5e4f7, #fddde6, #e1cce8);
-            overflow: hidden;
-            transition: background 1s ease;
-            height: 100vh;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
+            overflow-y: auto;
+            overflow-x: hidden;
+            flex-direction: column;
+            transition: background 1s ease-in-out;
         }
 
         .slide {
@@ -25,52 +30,57 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 80vh;
-            width: 80%;
             text-align: center;
-            padding: 40px;
-            position: absolute;
+            padding: 30px; /* Reduced padding */
+            position: relative;
             opacity: 0;
-            transition: opacity 1s ease;
+            transition: opacity 1s ease-out, transform 0.8s ease-in-out;
             border-radius: 20px;
             background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            max-width: 80%; /* Reduced max-width */
+            z-index: 1;
+            margin: 10px 0;
         }
 
         .active {
             display: flex;
             opacity: 1;
+            transform: translateY(0);
         }
 
         h1, h2, p {
             color: #3e2b47;
             font-family: 'Playfair Display', serif;
-            font-weight: 400;
             margin: 0 0 20px;
             max-width: 90%;
+            font-size: 1.5rem;
             line-height: 1.6;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.6rem; /* Reduced font size */
+            letter-spacing: 1px;
+            font-weight: 600;
         }
 
         h2 {
-            font-size: 2rem;
+            font-size: 2.0rem; /* Reduced font size */
+            letter-spacing: 1px;
         }
 
         button {
-            margin-top: 20px;
-            padding: 12px 28px;
-            border: none;
+            padding: 12px 25px; /* Reduced padding */
             background: #ff8ac7;
             color: white;
-            font-size: 18px;
+            border: none;
+            font-size: 16px; /* Reduced font size */
             font-weight: 600;
-            border-radius: 30px;
+            border-radius: 50px;
             cursor: pointer;
-            transition: background 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            outline: none;
         }
 
         button:hover {
@@ -78,8 +88,12 @@
             transform: scale(1.05);
         }
 
+        button:active {
+            transform: scale(0.98);
+        }
+
         .heart {
-            font-size: 150px;
+            font-size: 150px; /* Reduced size */
             color: #ff8ac7;
             animation: heartbeat 1.5s infinite;
         }
@@ -90,21 +104,21 @@
         }
 
         .glow-text {
-            font-size: 2.5rem;
+            font-size: 2.5rem; /* Reduced font size */
             color: #fff;
-            text-shadow: 0 0 10px #ff85c1, 0 0 20px #e57ed6, 0 0 30px #d36fe3;
-            animation: pulse 1.5s infinite;
+            text-shadow: 0 0 20px #ff85c1, 0 0 40px #e57ed6, 0 0 60px #d36fe3;
+            animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
             0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+            50% { opacity: 0.6; }
         }
 
         .balloon {
             position: absolute;
-            width: 35px;
-            height: 50px;
+            width: 40px;
+            height: 55px;
             background: #ff8ac7;
             border-radius: 50% 50% 45% 45%;
             animation: floatUp 15s linear infinite;
@@ -125,8 +139,8 @@
 
         .sparkle {
             position: absolute;
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             background: white;
             border-radius: 50%;
             box-shadow: 0 0 10px white;
@@ -150,40 +164,40 @@
     </style>
 </head>
 <body>
-    <div class="slide active" id="slide1">
-        <h1>Lil Mami, Welcome back </h1>
-        <p>I've missed you so much. More than I can ever say.</p>
-        <button onclick="nextSlide()">Next</button>
-    </div>
+<div class="slide active" id="slide1">
+    <h1>Lil Mami, Welcome back </h1>
+    <p>I've missed you so much. More than I can ever say.</p>
+    <button onclick="nextSlide()">Next</button>
+</div>
 
-    <div class="slide" id="slide2">
-        <h2>PRINCESS SONIA</h2>
-        <p>Can’t get over the first time I met you at my service place, my obvious ass wanted to talk to you so bad mehn 😂 CAN'T FORGET THAT LOL</p>
-        <p>Magicland? The chicken republic dinner after? 😂 Our fun times at my cousin's place where we'd argue over songs to play? The last date before I travelled? Our uncontrollable PDAs? 😂 I mean, we fought so many times yet we had genuine & fun times. They were special to me</p>
-        <p>I'm actually sorry I messed things up. I felt it, I watched something this amazing slip off my hands. BTW Did you miss me? I mean, Us?</p>
-        <button onclick="nextSlide()">OF COURSE I DID 💗</button>
-    </div>
+<div class="slide" id="slide2">
+    <h2>PRINCESS SONIA</h2>
+    <p>Can’t get over the first time I met you at my service place, my obvious ass wanted to talk to you so bad mehn 😂 CAN'T FORGET THAT LOL</p>
+    <p>Magicland? The chicken republic dinner after? 😂 Our fun times at my cousin's place where we'd argue over songs to play? The last date before I travelled? Our uncontrollable PDAs? 😂 I mean, we fought so many times yet we had genuine & fun times. They were special to me</p>
+    <p>I'm actually sorry I messed things up. I felt it, I watched something this amazing slip off my hands. BTW Did you miss me? I mean, Us?</p>
+    <button onclick="nextSlide()">OF COURSE I DID 💗</button>
+</div>
 
-    <div class="slide" id="slide3">
-        <h2>A LIKKLE SECRET?</h2>
-        <p>I love you, Sonia, sincerely. I'm so sure about this. You were a perfect fit for me and I hope & pray you'll be again.</p>
-        <div class="heart">💖️</div>
-        <button onclick="fakeButton(this)">CLICK HERE IF YOU DON'T LOVE ME ANYMORE 😢</button>
-        <button onclick="nextSlide()">Next️</button>
-    </div>
+<div class="slide" id="slide3">
+    <h2>A LIKKLE SECRET?</h2>
+    <p>I love you, Sonia, sincerely. I'm so sure about this. You were a perfect fit for me and I hope & pray you'll be again.</p>
+    <div class="heart">💖️</div>
+    <button onclick="fakeButton(this)">CLICK HERE IF YOU DON'T LOVE ME ANYMORE 😢</button>
+    <button onclick="nextSlide()">Next</button>
+</div>
 
-    <div class="slide" id="slide4">
-        <p>So, </p>
-        <h2 class="glow-text">WILL YOU BE MINE AGAIN... FOREVER THIS TIME? 💗 </h2>
-        <button onclick="confetti()">YES</button>
-        <button class="no-btn" onmouseover="moveNo(this)">NO</button>
-        <br /><br />
-        <a href="https://wa.me/2349032746451?text=Yes%2C%20I%E2%80%99m%20ready%20to%20be%20yours%20again" target="_blank">
-            <button>no worry you no get choice, click this button baby 😂</button>
-        </a>
-    </div>
+<div class="slide" id="slide4">
+    <p>So, </p>
+    <h2 class="glow-text">WILL YOU BE MINE AGAIN... FOREVER THIS TIME? 💗</h2>
+    <button onclick="confetti()">YES</button>
+    <button class="no-btn" onmouseover="moveNo(this)">NO</button>
+    <br /><br />
+    <a href="https://wa.me/2349032746451?text=Yes%2C%20I%E2%80%99m%20ready%20to%20be%20yours%20again" target="_blank">
+        <button>no worry you no get choice, click this button baby 😂</button>
+    </a>
+</div>
 
-    <script>
+<script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
 

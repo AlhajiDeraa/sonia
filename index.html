@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>💌</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,8 +13,8 @@
         }
 
         body {
-            font-family: 'Raleway', sans-serif;
-            background: linear-gradient(135deg, #f5e4f7, #e1cce8);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #F7E4F7, #E1D0F2);
             height: 100%;
             display: flex;
             justify-content: center;
@@ -23,8 +23,8 @@
             overflow-x: hidden;
             flex-direction: column;
             transition: background 1s ease-in-out;
-            font-size: 16px;
-            color: #3e2b47;
+            font-size: 18px;
+            color: #3B2A45;
         }
 
         .slide {
@@ -33,16 +33,17 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 30px 40px; /* Reduced padding */
+            padding: 50px 40px;
             position: relative;
             opacity: 0;
             transition: opacity 1s ease-out, transform 1s ease-in-out;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.85);
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-            border-radius: 25px;
-            max-width: 65%; /* Reduced max width */
+            border-radius: 20px;
+            max-width: 80%;
+            margin: 40px 0;
             z-index: 1;
-            margin: 20px 0;
+            font-family: 'Playfair Display', serif;
         }
 
         .active {
@@ -52,40 +53,38 @@
         }
 
         h1, h2, p {
-            color: #3e2b47;
-            font-family: 'Playfair Display', serif;
             margin: 0 0 20px;
-            max-width: 90%;
-            font-size: 1.4rem;
-            line-height: 1.6;
+            font-size: 1.8rem;
+            line-height: 1.5;
         }
 
         h1 {
-            font-size: 2.5rem; /* Reduced font size */
-            font-weight: 900;
-            letter-spacing: 1px;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #9B6D8B;
         }
 
         h2 {
-            font-size: 1.8rem; /* Reduced font size */
+            font-size: 2.2rem;
             font-weight: 600;
-            letter-spacing: 0.8px;
+            color: #5A3C5B;
         }
 
         p {
-            font-size: 1.2rem; /* Reduced font size */
-            line-height: 1.75;
-            color: #555;
+            font-size: 1.6rem;
+            line-height: 1.7;
+            color: #6D4A75;
+            max-width: 90%;
         }
 
         button {
-            padding: 12px 28px; /* Reduced padding */
-            background: linear-gradient(135deg, #ff8ac7, #e57ed6);
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #FF9CBB, #D58FE8);
             color: white;
             border: none;
-            font-size: 1.1rem; /* Reduced font size */
+            font-size: 1.3rem;
             font-weight: 600;
-            border-radius: 50px;
+            border-radius: 40px;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
@@ -93,7 +92,7 @@
         }
 
         button:hover {
-            background: #e57ed6;
+            background: #D58FE8;
             transform: translateY(-4px);
             box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
         }
@@ -103,8 +102,8 @@
         }
 
         .heart {
-            font-size: 100px; /* Reduced size */
-            color: #ff8ac7;
+            font-size: 130px;
+            color: #FF9CBB;
             animation: heartbeat 1.5s infinite;
             margin-bottom: 30px;
         }
@@ -115,26 +114,26 @@
         }
 
         .glow-text {
-            font-size: 2rem; /* Reduced font size */
-            color: #fff;
-            text-shadow: 0 0 25px #ff85c1, 0 0 40px #e57ed6;
-            animation: pulse 2s infinite;
+            font-size: 2.5rem;
+            color: #FFF;
+            text-shadow: 0 0 20px #FF8DCC, 0 0 40px #D58FE8;
+            animation: glow 2s infinite;
             font-weight: 700;
         }
 
-        @keyframes pulse {
+        @keyframes glow {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.7; }
         }
 
         .balloon {
             position: absolute;
-            width: 50px; /* Reduced size */
-            height: 60px; /* Reduced size */
-            background: #ff8ac7;
+            width: 80px;
+            height: 90px;
+            background: #FF9CBB;
             border-radius: 50% 50% 45% 45%;
             animation: floatUp 15s linear infinite;
-            opacity: 0.8;
+            opacity: 0.85;
             z-index: 0;
         }
 
@@ -145,47 +144,78 @@
 
         .sparkle {
             position: absolute;
-            width: 15px; /* Reduced size */
-            height: 15px; /* Reduced size */
+            width: 18px;
+            height: 18px;
             background: white;
             border-radius: 50%;
-            box-shadow: 0 0 15px white;
+            box-shadow: 0 0 20px white;
             animation: sparkleAnim 3s linear infinite;
         }
 
         @keyframes sparkleAnim {
             0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.5); opacity: 0.6; }
+            50% { transform: scale(1.6); opacity: 0.5; }
             100% { transform: scale(1); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                max-width: 90%;
+                padding: 40px 30px;
+            }
+
+            h1 {
+                font-size: 2.4rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            p {
+                font-size: 1.4rem;
+            }
+
+            button {
+                font-size: 1.1rem;
+            }
+
+            .heart {
+                font-size: 100px;
+            }
+
+            .glow-text {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
 <div class="slide active" id="slide1">
-    <h1>Lil Mami, Feels good to have you back in my life <h1/>
+    <h1>Lil Mami,</h1>
     <p>I've missed you so much. More than I can ever say.</p>
     <button onclick="nextSlide()">Next</button>
 </div>
 
 <div class="slide" id="slide2">
-    <h2>PRINCESS SONIA</h2>
+    <h2>MY PRINCESS SONIA</h2>
     <p>Can’t still get over the first time I met you at my service place, my obvious ass wanted to talk to you so bad mehn 😂</p>
     <p>Magicland? The chicken republic dinner after? 😂 Our fun times at my cousin's place where we'd argue over songs to play? The last date before I travelled? Our uncontrollable PDAs? 😂</p>
     <p>I'm actually sorry I messed things up. I felt it, I watched something this amazing slip off my hands. BTW Did you miss me? I mean, Us?</p>
-    <button onclick="nextSlide()">OF COURSE I DID 💗</button>
+    <button onclick="nextSlide()">OF COURSE I DID </button>
 </div>
 
 <div class="slide" id="slide3">
     <h2>A LIKKLE SECRET?</h2>
     <p>I love you, Sonia, sincerely. I'm so sure about this feeling. You were a perfect fit for me and I hope & pray you'll be again.</p>
-    <div class="heart">💖️</div>
+    <div class="heart">💗</div>
     <button onclick="fakeButton(this)">CLICK HERE IF YOU DON'T LOVE ME ANYMORE 😢</button>
     <button onclick="nextSlide()">Next</button>
 </div>
 
 <div class="slide" id="slide4">
     <p>So, </p>
-    <h2 class="glow-text">WILL YOU BE MINE AGAIN... FOREVER THIS TIME? 💗</h2>
+    <h2 class="glow-text">WILL YOU BE MINE AGAIN... FOREVER THIS TIME? </h2>
     <button onclick="confetti()">YES</button>
     <button class="no-btn" onmouseover="moveNo(this)">NO</button>
     <br /><br />
